@@ -12,7 +12,7 @@ CREATE TABLE teacher
     first_name          varchar(50) NOT NULL,
     second_name         varchar(50) NOT NULL,
     email               varchar(50) NOT NULL,
-    phone               varchar(12),
+    phone               varchar(15),
     teaching_experience int,
     description         varchar(255),
     CONSTRAINT teacher_pk PRIMARY KEY (id)
@@ -41,7 +41,7 @@ CREATE TABLE student
     first_name  varchar(50) NOT NULL,
     second_name varchar(50) NOT NULL,
     email       varchar(50) NOT NULL,
-    phone       varchar(12),
+    phone       varchar(15),
     CONSTRAINT student_pk PRIMARY KEY (id)
 );
 
@@ -101,7 +101,7 @@ ALTER TABLE teacher
     ADD CONSTRAINT Teacher_fk0 FOREIGN KEY (post_id) REFERENCES post (id);
 
 ALTER TABLE student_group
-    ADD CONSTRAINT student_group_fk0 FOREIGN KEY (cource_id) REFERENCES course (id);
+    ADD CONSTRAINT student_group_fk0 FOREIGN KEY (course_id) REFERENCES course (id);
 
 ALTER TABLE enrollment
     ADD CONSTRAINT enrollment_fk0 FOREIGN KEY (student_id) REFERENCES student (id);
@@ -127,3 +127,4 @@ ALTER TABLE points_for_task
     ADD CONSTRAINT points_for_task_fk0 FOREIGN KEY (home_task_id) REFERENCES home_task (id);
 ALTER TABLE points_for_task
     ADD CONSTRAINT points_for_task_fk1 FOREIGN KEY (student_id) REFERENCES student (id);
+
